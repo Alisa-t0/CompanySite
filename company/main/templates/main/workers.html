@@ -1,10 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Наші Робітники</title>
-</head>
-<body>
-    {{workers}}
-</body>
-</html>
+{% extends "layout.html" %}
+
+{% block title %}Наші Робітники{% endblock %}
+
+{% block content %}
+<h1>Наша Команда</h1>
+
+<div class="workers-container">
+    {% for worker in workers %}
+        <div class="worker-card">
+            <h2>{{ worker.name }} {{ worker.surname }}</h2>
+            <p><strong>Посада:</strong> {{ worker.position }}</p>
+            <p><strong>Телефон:</strong> {{ worker.phone }}</p>
+        </div>
+    {% empty %}
+        <p>Немає працівників у базі.</p>
+    {% endfor %}
+</div>
+{% endblock %}

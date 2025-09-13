@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Company Site{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="{% url 'home' %}">Головна</a>
+            <a href="{% url 'services' %}">Сервіси</a>
+            <a href="{% url 'projects' %}">Проекти</a>
+            <a href="{% url 'contacts' %}">Контакти</a>
+            <a href="{% url 'workers' %}">Робітники</a>
+        </nav>
+
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

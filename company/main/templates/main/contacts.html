@@ -1,41 +1,17 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <title>Company Site - Контакти</title>
-    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
-</head>
-<body>
-    <div class="container">
-        <nav>
-            <a href="{% url 'home' %}">Головна</a>
-            <a href="{% url 'services' %}">Сервіси</a>
-            <a href="{% url 'projects' %}">Проекти</a>
-            <a href="{% url 'contacts' %}">Контакти</a>
-        </nav>
+{% extends "layout.html" %}
 
-        <h1>Контакти</h1>
+{% block title %}Контакти - Company Site{% endblock %}
 
-        <div class="info">
-            <p><strong>Адреса:</strong> м. Київ, вул. Хрещатик, 10</p>
-            <p><strong>Телефон:</strong> +380 (67) 123-45-67</p>
-            <p><strong>Email:</strong> info@company.com</p>
-            <p><strong>Години роботи:</strong><br>
-                Пн–Пт: 9:00 – 18:00<br>
-                Сб–Нд: вихідний
-            </p>
-        </div>
+{% block content %}
+    <h1>Наші Контакти</h1>
+    <p><strong>Адреса:</strong> м. Київ, вул. Хрещатик, 10</p>
+    <p><strong>Телефон:</strong> +380 (67) 123-45-67</p>
+    <p><strong>Email:</strong> info@company.com</p>
 
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2539.9564!2d30.5234!3d50.4501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4ce55c0c9f8b1%3A0x64d15a69f8f299ec!2z0LLRg9C70LjRhtGPINCk0LXRgNC20LXQvdC40LUg0LrQvtC70YzQutC-0LPQviwgMTAsINCa0LjRl9CyLCDQmtC40ZfQstGB0YzQutCwLCAwMDAwMA!5e0!3m2!1suk!2sua!4v1695640000000!5m2!1suk!2sua"
-            width="100%"
-            height="350"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-    </div>
-</body>
-</html>
+    <h2>Години роботи</h2>
+    <p>Пн-Пт: 9:00 – 18:00<br>Сб-Нд: вихідні</p>
+
+    <h2>Ми на карті</h2>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2539.865759836408!2d30.522366515894635!3d50.44758597947495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4ce5614f9f9b7%3A0x5c9e5efb8a45af3c!2z0YPQuy4g0KXRg9C70L7QstCw0Y8sIDEwLCDQmtC40ZfQsiwg0JrQuNGX0LIsIDAxMDAw!5e0!3m2!1suk!2sua!4v1692105600000!5m2!1suk!2sua"
+        width="100%" height="300" style="border:0;" allowfullscreen loading="lazy"></iframe>
+{% endblock %}

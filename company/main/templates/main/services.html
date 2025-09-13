@@ -1,41 +1,27 @@
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <title>Сервіси та Ціни</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
-</head>
-<body>
-    <div class="container">
-        <nav>
-            <a href="{% url 'home' %}">Головна</a>
-            <a href="{% url 'services' %}">Сервіси</a>
-            <a href="{% url 'projects' %}">Проекти</a>
-            <a href="{% url 'contacts' %}">Контакти</a>
-        </nav>
+{% extends "layout.html" %}
 
-        <h1>Наші Сервіси та Ціни</h1>
+{% block title %}Сервіси - Company Site{% endblock %}
 
-        <div class="service-block">
-            <span>Бухгалтерський супровід малого бізнесу</span>
-            <span class="price">від 3000 грн</span>
-        </div>
+{% block content %}
+    <h1>Наші Сервіси та Ціни</h1>
 
-        <div class="service-block">
-            <span>Податковий консалтинг та оптимізація</span>
-            <span class="price">від 2500 грн</span>
-        </div>
-
-        <div class="service-block">
-            <span>Фінансовий аналіз та планування</span>
-            <span class="price">від 4000 грн</span>
-        </div>
-
-        <div class="service-block">
-            <span>Консультації для стартапів та підприємців</span>
-            <span class="price">від 1500 грн</span>
-        </div>
+    <div class="service-block">
+        <span>Бухгалтерський супровід малого бізнесу</span>
+        <span class="price">від 3000 грн</span>
     </div>
-</body>
-</html>
+
+    <div class="service-block">
+        <span>Податковий консалтинг та оптимізація</span>
+        <span class="price">від 2500 грн</span>
+    </div>
+
+    <div class="service-block">
+        <span>Фінансовий аналіз та планування</span>
+        <span class="price">від 4000 грн</span>
+    </div>
+
+    <div class="service-block">
+        <span>Консультації для стартапів та підприємців</span>
+        <span class="price">від 1500 грн</span>
+    </div>
+{% endblock %}
