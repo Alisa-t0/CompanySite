@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 
+from django.conf.global_settings import LOGGING
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -122,3 +124,39 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'simple': {
+            'format': "[ONLY FOR DEVELOPERS] LOGGING SIMPLE| Level: {levelname}. Text: {message}",
+            'style': '{',
+            },
+        'verbose': {
+            'format': "[ONLY FOR DEVELOPERS] LOGGING VERBOSE| Level: {levelname}. Date: {asctime}. Module: {module}. Text: {message}",
+            'style': '{',
+            },
+        },
+
+    'handlers': {
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple',
+            },
+        'file': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'formatter': 'verbose',
+            'filename': 'company_logs.log',
+            },
+        },
+    'loggers': {
+        'moderator': {
+            'handlers': ['console', 'file'],
+            'level': 'INFO',
+            'propagate': False,
+            },
+        }
+    }
