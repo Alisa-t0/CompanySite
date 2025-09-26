@@ -1,0 +1,27 @@
+{% extends 'layout_m.html' %}
+
+{% block title %}Інформація про працівника{% endblock %}
+
+{% block content %}
+<body class="worker-page">
+<div class="worker-card">
+    <h2>Деталі працівника</h2>
+
+    <div class="worker-info">
+        <p><strong>ID:</strong> {{ worker.id }}</p>
+        <p><strong>Ім’я:</strong> {{ worker.name }}</p>
+        <p><strong>Прізвище:</strong> {{ worker.surname }}</p>
+        <p><strong>Посада:</strong> {{ worker.position }}</p>
+        <p><strong>Зарплата:</strong> {{ worker.salary }}</p>
+        <p><strong>Телефон:</strong> {{ worker.phone }}</p>
+        <p><strong>Дата прийому:</strong> {{ worker.date_hired }}</p>
+        <p><strong>Активний:</strong> {% if worker.is_active %}Так{% else %}Ні{% endif %}</p>
+    </div>
+
+    <div class="worker-actions">
+        <a href="{% url 'worker_update' worker.id %}" class="btn">Оновити</a>
+        <a href="{% url 'workers_list' %}" class="btn btn-back">Назад</a>
+    </div>
+</div>
+{% endblock %}
+

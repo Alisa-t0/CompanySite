@@ -171,3 +171,59 @@ body.add-employee-page button {
     font-size: 17px;
 }
 
+
+.worker-card h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 22px;
+    color: #2c3e50;
+}
+
+.worker-info p {
+    font-size: 16px;
+    margin: 10px 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 6px;
+}
+
+.worker-info strong {
+    color: #2c3e50;
+    display: inline-block;
+    width: 150px;
+}
+
+.worker-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.worker-actions .btn {
+    background: #0077cc;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.worker-actions .btn:hover {
+    background: #005fa3;
+}
+
+.worker-actions .btn-back {
+    background: #777;
+}
+
+.worker-actions .btn-back:hover {
+    background: #555;
+}
+
+body.worker-page .container {
+    max-width: 600px;
+    padding: 40px;
+    font-size: 16px;
+}
+

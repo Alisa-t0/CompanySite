@@ -13,6 +13,9 @@ class Worker(models.Model):
     def __str__(self):
         return f"{self.name} {self.surname}"
 
+    def get_absolute_url(self):
+        return f'/moderator/workers/{self.id}'
+
 class Project(models.Model):
     id = models.IntegerField('№', primary_key=True)
     name = models.CharField('Назва проекту', max_length=200)
