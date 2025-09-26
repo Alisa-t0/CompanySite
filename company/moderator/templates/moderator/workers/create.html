@@ -1,0 +1,50 @@
+{% extends 'layout_m.html' %}
+
+{% block title %}Додати працівника{% endblock %}
+
+{% block content %}
+<body class="add-employee-page">
+<h2 style="text-align: center; margin-bottom: 30px;">Додати нового працівника</h2>
+
+<form method="post">
+    {% csrf_token %}
+
+    <div class="form-group">
+        <p class="form-label">Ім'я</p>
+        {{ form.name }}
+    </div>
+
+    <div class="form-group">
+        <p class="form-label">Прізвище</p>
+        {{ form.surname }}
+    </div>
+
+    <div class="form-group">
+        <p class="form-label">Посада</p>
+        {{ form.position }}
+    </div>
+
+    <div class="form-group">
+        <p class="form-label">Зарплата</p>
+        {{ form.salary }}
+    </div>
+
+    <div class="form-group">
+        <p class="form-label">Телефон</p>
+        {{ form.phone }}
+    </div>
+
+    <div class="form-group">
+        <p class="form-label">Дата прийому на роботу</p>
+        {{ form.date_hired }}
+    </div>
+
+    <div class="form-group checkbox-group">
+        <p class="form-label">Працює зараз</p>
+        {{ form.is_active }}
+    </div>
+
+    <button type="submit">Додати</button>
+</form>
+{% endblock %}
+

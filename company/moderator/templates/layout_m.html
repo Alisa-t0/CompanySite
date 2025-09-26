@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Moderator Panel{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'moderator/css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Панель модератора</h1>
+        <nav>
+            <a href="{% url 'moderator_main_page' %}">Головна</a>
+            <a href="{% url 'workers_list' %}">Працівники</a>
+            <a href="#">Клієнти</a>
+            <a href="#">Проекти</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>
