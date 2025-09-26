@@ -20,6 +20,7 @@
 
     <div class="worker-actions">
         <a href="{% url 'worker_update' worker.id %}" class="btn">Оновити</a>
+        <a href="{% url 'worker_delete' worker.id %}" class="btn btn-delete">Видалити</a>
         <a href="{% url 'workers_list' %}" class="btn btn-back">Назад</a>
     </div>
 </div>

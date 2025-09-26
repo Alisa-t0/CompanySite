@@ -227,3 +227,68 @@ body.worker-page .container {
     font-size: 16px;
 }
 
+a.btn.btn-delete {
+    background-color: #e74c3c;
+    color: white;
+}
+
+a.btn.btn-delete:hover {
+    background-color: #c0392b;
+}
+
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-container {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.modal-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.modal-actions .btn {
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.modal-actions .btn-back {
+    background-color: #777;
+    color: white;
+}
+
+.modal-actions .btn-back:hover {
+    background-color: #555;
+}
+
+.modal-actions .btn-delete {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.modal-actions .btn-delete:hover {
+    background-color: #c0392b;
+}

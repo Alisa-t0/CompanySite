@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import DetailView, UpdateView
+from django.views.generic import DetailView, UpdateView, DeleteView
 
 from .forms import WorkerForm
 from main.models import Worker
@@ -14,7 +14,13 @@ class WorkerUpdateView(UpdateView):
     template_name = 'moderator/workers/update.html'
     form_class = WorkerForm
     context_object_name = 'worker'
-# Create your views here.
+
+class WorkerDeleteView(DeleteView):
+    model = Worker
+    template_name = 'moderator/workers/delete.html'
+    context_object_name = 'worker'
+    success_url = '..'
+
 def show_moderator_main_page(request):
     return render(request, 'moderator/moderator_main_page.html')
 
