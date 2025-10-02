@@ -127,7 +127,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': False,
+    'disable_existing_loggers': True,
     'formatters': {
         'simple': {
             'format': "[ONLY FOR DEVELOPERS] LOGGING SIMPLE| Level: {levelname}. Text: {message}",
@@ -141,12 +141,12 @@ LOGGING = {
 
     'handlers': {
         'console': {
-            'level': 'INFO',
+            'level': 'CRITICAL',
             'class': 'logging.StreamHandler',
             'formatter': 'simple',
             },
         'file': {
-            'level': 'WARNING',
+            'level': 'CRITICAL',
             'class': 'logging.FileHandler',
             'formatter': 'verbose',
             'filename': 'company_logs.log',

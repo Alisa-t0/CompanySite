@@ -30,7 +30,24 @@ def show_moderator_main_page(request):
 def show_workers_list(request):
     logger.info('Користувач перейшов на сторінку списку робітників')
     all_workers = Worker.objects.all()
-    return render(request, 'moderator/workers/workers_list.html', {'all_workers': all_workers})
+    sort_field = request.GET.get('sort', 'id')
+    direction = request.GET.get('dir', 'asc')
+
+    if request.method == 'GET':
+        filter_fields = ['id', 'name', 'surname', 'position', 'salary', 'phone', 'date_hired', 'is_active']
+        filters = {}
+        for i in filter_fields:
+            value = request.GET.get(f'filter_{i}')
+            if value:
+                filters[i] = value
+        all_workers = all_workers.filter(**filters)
+
+    if direction == 'desc':
+        all_workers = all_workers.order_by(f'-{sort_field}')
+    else:
+        all_workers = all_workers.order_by(sort_field)
+    return render(request, 'moderator/workers/workers_list.html', {'all_workers': all_workers, 'sort_field': sort_field, 'direction': direction})
+
 def worker_create(request):
     if request.method == 'POST':
         form = WorkerForm(request.POST)
