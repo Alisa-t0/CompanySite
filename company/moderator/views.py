@@ -1,3 +1,6 @@
+import os
+from hashlib import sha256
+from dotenv import load_dotenv
 from django.shortcuts import render, redirect
 from django.views.generic import DetailView, UpdateView, DeleteView
 import logging
@@ -5,6 +8,7 @@ import logging
 from .forms import WorkerForm
 from main.models import Worker
 
+load_dotenv()
 logger = logging.getLogger('moderator')
 class WorkerDetailView(DetailView):
     model = Worker
@@ -47,6 +51,20 @@ def show_workers_list(request):
     else:
         all_workers = all_workers.order_by(sort_field)
     return render(request, 'moderator/workers/workers_list.html', {'all_workers': all_workers, 'sort_field': sort_field, 'direction': direction})
+
+def show_login_moderator(request):
+    if request.method == 'POST':
+        entered_login = sha256(request.POST.get('login').encode()).hexdigest()
+        entered_password = sha256(request.POST.get('password').encode()).hexdigest()
+        print('hello', entered_login, entered_password)
+
+        correct_login = os.getenv('MYCOMPANY_LOGIN')
+        correct_password = os.getenv('MYCOMPANY_PASSWORD')
+
+        if entered_login == correct_login and entered_password == correct_password:
+            return redirect('moderator_main_page')
+    return render(request, 'moderator/login.html')
+
 
 def worker_create(request):
     if request.method == 'POST':

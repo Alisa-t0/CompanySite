@@ -15,9 +15,12 @@
             <a href="{% url 'contacts' %}">Контакти</a>
             <a href="{% url 'workers' %}">Робітники</a>
         </nav>
-
         {% block content %}
         {% endblock %}
+        <footer>
+            <p>© 2025 CompanyName | Всі права захищено</p>
+            <a class="admin-link" href="{% url 'login_moderator' %}">🔒 Вхід для адміністратора</a>
+        </footer>
     </div>
 </body>
 </html>
