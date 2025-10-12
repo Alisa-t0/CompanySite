@@ -9,4 +9,6 @@ urlpatterns = [
     path('workers/<int:pk>',views.WorkerDetailView.as_view(),name='worker_details'),
     path('workers/<int:pk>/update',views.WorkerUpdateView.as_view(),name='worker_update'),
     path('workers/<int:pk>/delete',views.WorkerDeleteView.as_view(),name='worker_delete'),
+    path('export_workers',views.export_workers,name='export_workers'),
+    path('import_workers',views.import_workers,name='import_workers'),
 ]

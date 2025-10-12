@@ -1,0 +1,44 @@
+{
+    "workers": [
+        {
+            "id": 4,
+            "name": "Світлана",
+            "surname": "Шевченко",
+            "position": "Аналітик",
+            "salary": 2000,
+            "phone": "0675544555",
+            "date_hired": "2000-09-20",
+            "is_active": false
+        },
+        {
+            "id": 5,
+            "name": "Марія",
+            "surname": "Коваль",
+            "position": "Бухгалтер",
+            "salary": 3000,
+            "phone": "0631144233",
+            "date_hired": "2025-07-02",
+            "is_active": false
+        },
+        {
+            "id": 6,
+            "name": "Марія",
+            "surname": "Коваленко",
+            "position": "Бухгалтер",
+            "salary": 1500,
+            "phone": "0671239867",
+            "date_hired": "2025-03-03",
+            "is_active": true
+        },
+        {
+            "id": 7,
+            "name": "Олег",
+            "surname": "Курін",
+            "position": "Менеджер",
+            "salary": 3000,
+            "phone": "0631178233",
+            "date_hired": "2019-02-13",
+            "is_active": true
+        }
+    ]
+}

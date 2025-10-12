@@ -1,15 +1,22 @@
-{% extends 'layout_m.html' %}
-
-{% block title %}Увійти{% endblock %}
-{% block content %}
-<form method="post">
-    {% csrf_token %}
-    <h2>Авторизація</h2>
-    <p>Логін</p>
-    <input name="login" type="text">
-    <p>Пароль</p>
-    <input name="password" type="text">
-    <button type="submit">Увійти</button>
-</form>
-
-{% endblock %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Moderator Panel{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'moderator/css/style.css' %}?v={{ time }}?">
+</head>
+<body>
+    <main class="container">
+        <form method="post">
+            {% csrf_token %}
+            <h2>Авторизація</h2>
+            <p>Логін</p>
+            <input name="login" type="text">
+            <p>Пароль</p>
+            <input name="password" type="text">
+            <button type="submit">Увійти</button>
+        </form>
+    </main>
+</body>
+</html>

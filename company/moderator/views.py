@@ -1,5 +1,8 @@
+import json
 import os
 from hashlib import sha256
+
+from django.http import HttpResponse
 from dotenv import load_dotenv
 from django.shortcuts import render, redirect
 from django.views.generic import DetailView, UpdateView, DeleteView
@@ -75,3 +78,41 @@ def worker_create(request):
             return redirect('..')
     form = WorkerForm
     return render(request, 'moderator/workers/create.html', {'form': form})
+
+def export_workers(request):
+    workers = Worker.objects.all()
+    data = {'workers': [{
+            'id': worker.id,
+            'name': worker.name,
+            'surname': worker.surname,
+            'position': worker.position,
+            'salary': int(worker.salary),
+            'phone': worker.phone,
+            'date_hired': str(worker.date_hired),
+            'is_active': worker.is_active,
+            }for worker in workers]}
+    with open('workers_data.json', 'w', encoding='utf-8') as file:
+        json.dump(data, file, ensure_ascii=False, indent=4)
+    return render(request, 'moderator/export_done.html')
+
+def import_workers(request):
+    try:
+        with open('workers_data.json', 'r', encoding='utf-8') as file:
+            workers = json.load(file)
+            for worker_data in workers.get('workers'):
+                Worker.objects.get_or_create(id=worker_data['id'],
+                        defaults={
+                                'name': worker_data['name'],
+                                'surname': worker_data['surname'],
+                                'position': worker_data['position'],
+                                'salary': worker_data['salary'],
+                                'phone': worker_data['phone'],
+                                'date_hired': worker_data['date_hired'],
+                                'is_active': worker_data['is_active'],
+                        }
+                     )
+            return render(request, 'moderator/import_done.html')
+    except FileNotFoundError:
+        return HttpResponse('<h4>Помилка. Файл не знайдено</h4>')
+    except json.JSONDecodeError:
+        return HttpResponse('<h4>Помилка. Файл не розпізнано</h4>')
